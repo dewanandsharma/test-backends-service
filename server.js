@@ -32,7 +32,9 @@ app.use('/api/contact', contactRouter);
 
 // // Start server local node.js
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`✅ Server running at http://31.97.230.157:5000:${PORT}`);
+  //console.log(`✅ Server running at http://31.97.230.157:5000:${PORT}`);
+  console.log(`✅ Server running at http://${process.env.HOST || 'localhost'}:${PORT}`);
+
 });
 
 // Security purpese of node.js | Domain name  Security

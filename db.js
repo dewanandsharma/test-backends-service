@@ -1,13 +1,32 @@
 const { Pool } = require('pg');
+require('dotenv').config();
 
 const pool = new Pool({
-  user: 'ankushinfotech',        // Your PostgreSQL username
-  host: 'srv945943.hstgr.cloud', // Your VPS hostname from Hostinger
-  database: 'postgre',          // Change if you created a custom DB name
-  password: 'Kanha@123',         // Your PostgreSQL password
-  port: 5432,                    // Default PostgreSQL port
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // Optional: use only if Hostinger requires SSL
+  },
 });
+
 module.exports = pool;
+
+
+
+
+
+
+
+
+// const { Pool } = require('pg');
+
+// const pool = new Pool({
+//   user: 'ankushinfotech',        // Your PostgreSQL username
+//   host: 'srv945943.hstgr.cloud', // Your VPS hostname from Hostinger
+//   database: 'postgre',          // Change if you created a custom DB name
+//   password: 'Kanha@123',         // Your PostgreSQL password
+//   port: 5432,                    // Default PostgreSQL port
+// });
+// module.exports = pool;
 
 
 // const { Pool } = require('pg');
